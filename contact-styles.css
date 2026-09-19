@@ -1,56 +1,8 @@
-/* Styles pour le formulaire de contact avec Supabase — thème "atelier nocturne" */
-
-.status-message {
-  padding: 12px 16px;
-  border-radius: 2px;
-  margin-top: 4px;
-  font-size: 14px;
-  font-weight: 500;
-  animation: slideInUp 0.3s ease-out;
-}
-
-.status-success {
-  background-color: rgba(52, 211, 153, 0.12);
-  color: #34d399;
-  border: 1px solid rgba(52, 211, 153, 0.35);
-}
-
-.status-error {
-  background-color: rgba(244, 114, 182, 0.12);
-  color: #f472b6;
-  border: 1px solid rgba(244, 114, 182, 0.35);
-}
-
-.status-info {
-  background-color: rgba(243, 241, 247, 0.08);
-  color: #f3f1f7;
-  border: 1px solid rgba(243, 241, 247, 0.2);
-}
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.form-submit:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-}
-
-.form-error {
-  display: block;
-  color: #f472b6;
-  font-size: 12px;
-  margin-top: 4px;
-  min-height: 16px;
-}
-
-.form-submit {
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-}
+/* Contact feedback uses the active portfolio palette. */
+.status-message { padding:12px 16px; border-radius:8px; margin-top:12px; font-size:14px; border:1px solid var(--hair); }
+.status-success { background:color-mix(in srgb,var(--lime) 8%,var(--bg)); color:var(--lime); }
+.status-error { background:color-mix(in srgb,var(--orange) 8%,var(--bg)); color:var(--orange); }
+.status-info { background:var(--bg-card); color:var(--ink-dim); }
+.form-submit:disabled { opacity:.55; cursor:not-allowed; }
+.form-error { display:block; color:var(--orange); font-size:12px; margin-top:4px; min-height:16px; }
+.form-input[aria-invalid="true"],.form-textarea[aria-invalid="true"] { border-color:var(--orange); }

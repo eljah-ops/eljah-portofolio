@@ -14,6 +14,7 @@
   const SUPABASE_ANON_KEY = '';
   const CONTACT_EMAIL = 'dialloelijahismael@gmail.com';
   let statusTimer;
+  const t = (fr, en) => document.documentElement.lang === 'en' ? en : fr;
 
   async function sendContactMessage(data) {
     if (SUPABASE_URL && SUPABASE_ANON_KEY) {
@@ -34,12 +35,12 @@
     }
 
     // Repli : ouvre le client e-mail avec le message pré-rempli.
-    const subject = encodeURIComponent(`Nouveau message de ${data.prenom} ${data.nom} — portfolio`);
+    const subject = encodeURIComponent(`${t('Nouveau message de', 'New message from')} ${data.prenom} ${data.nom} — portfolio`);
     const bodyLines = [
-      `Nom : ${data.nom}`,
-      `Prénom : ${data.prenom}`,
+      `${t('Nom', 'Last name')} : ${data.nom}`,
+      `${t('Prénom', 'First name')} : ${data.prenom}`,
       `E-mail : ${data.email}`,
-      data.telephone ? `Téléphone : ${data.telephone}` : null,
+      data.telephone ? `${t('Téléphone', 'Phone')} : ${data.telephone}` : null,
       '',
       data.message
     ].filter(Boolean);
@@ -56,32 +57,32 @@
       case 'nom':
       case 'prenom':
         if (!value.trim()) {
-          errors[name] = 'Ce champ est obligatoire';
+          errors[name] = t("Ce champ est obligatoire", "This field is required");
         } else if (value.trim().length < 2) {
-          errors[name] = 'Minimum 2 caractères';
+          errors[name] = t("Minimum 2 caractères", "At least 2 characters");
         }
         break;
 
       case 'email':
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!value.trim()) {
-          errors.email = 'Adresse e-mail obligatoire';
+          errors.email = t("Adresse e-mail obligatoire", "Email address is required");
         } else if (!emailRegex.test(value.trim())) {
-          errors.email = 'Adresse e-mail invalide';
+          errors.email = t("Adresse e-mail invalide", "Invalid email address");
         }
         break;
 
       case 'telephone':
         if (value && (!/^[\d\s+\-().]+$/.test(value) || value.replace(/\D/g, '').length < 6)) {
-          errors.telephone = 'Format de téléphone invalide';
+          errors.telephone = t("Format de téléphone invalide", "Invalid phone number");
         }
         break;
 
       case 'message':
         if (!value.trim()) {
-          errors.message = 'Le message est obligatoire';
+          errors.message = t("Le message est obligatoire", "A message is required");
         } else if (value.trim().length < 10) {
-          errors.message = 'Le message doit contenir au moins 10 caractères';
+          errors.message = t("Le message doit contenir au moins 10 caractères", "The message must contain at least 10 characters");
         }
         break;
     }
@@ -150,7 +151,8 @@
     const errors = validateForm();
     displayErrors(errors);
     if (Object.keys(errors).length > 0) {
-      showStatus('Veuillez corriger les erreurs dans le formulaire', 'error');
+      showStatus(t("Veuillez corriger les erreurs dans le formulaire", "Please correct the errors in the form"), 'error');
+      form.querySelector('[aria-invalid="true"]')?.focus();
       return;
     }
 
@@ -161,7 +163,7 @@
     // Désactiver le bouton
     const submitBtn = form.querySelector('.form-submit');
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Envoi en cours...';
+    submitBtn.textContent = t("Envoi en cours...", "Preparing your message...");
 
     try {
       // Envoyer (Supabase si configuré, sinon e-mail)
@@ -169,21 +171,28 @@
 
       // Succès
       if (result.via === 'mailto') {
-        showStatus('✓ Votre client e-mail va s\'ouvrir avec le message pré-rempli. Il ne reste qu\'à l\'envoyer !', 'success');
+        showStatus(t('Votre messagerie a été sollicitée. Vérifiez puis envoyez votre e-mail. Si elle ne s’ouvre pas, utilisez le lien de contact ci-dessous.', 'Your email app was requested. Review and send your email. If it does not open, use the contact link below.'), 'info');
       } else {
-        showStatus('✓ Message envoyé avec succès ! Je vous recontacterai bientôt.', 'success');
+        showStatus(t("✓ Message envoyé avec succès ! Je vous recontacterai bientôt.", "\u2713 Message sent successfully! I will get back to you soon."), 'success');
       }
-      form.reset();
+      if (result.via === 'supabase') form.reset();
       displayErrors({});
       
     } catch (error) {
       console.error('Erreur:', error);
-      showStatus(`Erreur: ${error.message}. Veuillez réessayer ou me contacter directement.`, 'error');
+      showStatus(t('Impossible de préparer le message. Réessayez ou contactez-moi directement.', 'Unable to prepare the message. Please try again or contact me directly.'), 'error');
     } finally {
       // Réactiver le bouton
       submitBtn.disabled = false;
       submitBtn.textContent = submitBtn.dataset.label || 'Envoyer le message ➤';
     }
+  });
+
+  document.addEventListener('portfolio-language', () => {
+    const errors = {};
+    form.querySelectorAll('[aria-invalid="true"]').forEach(field => Object.assign(errors, validateField(field.name, field.value)));
+    displayErrors(errors);
+    if (statusDiv) statusDiv.replaceChildren();
   });
 
   // Validation en temps réel
