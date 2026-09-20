@@ -7,7 +7,7 @@
   <title>Elijah Ismael Diallo — Développeur web & administrateur réseau</title>
   <meta name="description"
     content="Elijah Ismael Diallo, développeur web et administrateur réseau à Dakar. Découvrez mes projets, compétences et parcours. Disponible pour un stage ou une alternance.">
-  <meta name="theme-color" content="#fbf8f5">
+  <meta name="theme-color" content="#f8fafc">
   <meta name="author" content="Elijah Ismael Diallo">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:type" content="website">
@@ -63,6 +63,7 @@
 </head>
 
 <body>
+  <div class="reading-progress" aria-hidden="true"></div>
   <a class="skip-link" href="#contenu" data-i18n="nav.skip">Aller au contenu</a>
 
   <!-- SIDEBAR -->
@@ -108,6 +109,10 @@
             <h1 class="big" data-i18n="hero.title">Elijah Ismael <em>Diallo.</em></h1>
             <p class="hero-lede" data-i18n="hero.lede">Je développe des applications web et configure des réseaux fiables. Basé à Dakar, je recherche un stage ou une alternance pour contribuer à des projets concrets.</p>
             <p class="hero-tagline" data-i18n="hero.tagline">Disponible pour un stage ou une alternance</p>
+            <div class="hero-actions">
+              <a class="explore-projects" href="#projets"><span data-i18n="interactive.explore">Explorer mes projets</span><span aria-hidden="true">↘</span></a>
+              <button id="quick-nav-open" type="button" aria-haspopup="dialog" aria-controls="quick-nav" hidden><span data-i18n="interactive.navigate">Navigation rapide</span><kbd aria-hidden="true">Ctrl K</kbd></button>
+            </div>
             <p class="hero-languages"><span data-i18n="section.languages">Langues</span> <b>Wolof</b><i>·</i><b data-i18n="language.french">Français</b><i>·</i><b data-i18n="language.english">Anglais</b></p>
             <div class="social-pills">
               <a href="https://www.linkedin.com/in/elijah-ismael-diallo-236178422/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96C2 21.32 2.69 22 3.55 22h16.9c.86 0 1.55-.68 1.55-1.52V3.52C22 2.68 21.31 2 20.45 2ZM7.93 18.75H4.98V9.2h2.95v9.55ZM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42Zm12.3 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.3h.04c.4-.75 1.36-1.55 2.79-1.55 2.99 0 3.55 1.97 3.55 4.53v5.27Z"/></svg>LinkedIn</a>
@@ -139,20 +144,22 @@
       </div>
     </header>
 
-    <div class="tech-marquee" aria-label="HTML, CSS, JavaScript, PHP, Laravel, Python, MySQL, Linux, Cisco, Figma et GitHub"><div class="tech-track"><div><span><b aria-hidden="true">◇</b>HTML5</span><span><b aria-hidden="true">#</b>CSS3</span><span><b aria-hidden="true">JS</b>JavaScript</span><span><b aria-hidden="true">php</b>PHP</span><span><b aria-hidden="true">◈</b>Laravel</span><span><b aria-hidden="true">Py</b>Python</span><span><b aria-hidden="true">▤</b>MySQL</span><span><b aria-hidden="true">⌘</b>Linux</span><span><b aria-hidden="true">⌁</b>Cisco</span><span><b aria-hidden="true">◫</b>Figma</span><span><b aria-hidden="true">⑂</b>GitHub</span></div><div aria-hidden="true"><span><b aria-hidden="true">◇</b>HTML5</span><span><b aria-hidden="true">#</b>CSS3</span><span><b aria-hidden="true">JS</b>JavaScript</span><span><b aria-hidden="true">php</b>PHP</span><span><b aria-hidden="true">◈</b>Laravel</span><span><b aria-hidden="true">Py</b>Python</span><span><b aria-hidden="true">▤</b>MySQL</span><span><b aria-hidden="true">⌘</b>Linux</span><span><b aria-hidden="true">⌁</b>Cisco</span><span><b aria-hidden="true">◫</b>Figma</span><span><b aria-hidden="true">⑂</b>GitHub</span></div></div></div>
+    <div class="tech-marquee" aria-label="HTML, CSS, JavaScript, PHP, Laravel, Python, MySQL, Linux, Cisco, Figma et GitHub"><div class="tech-track"><div><span data-tool="html5">HTML5</span><span data-tool="css3">CSS3</span><span data-tool="javascript">JavaScript</span><span data-tool="php">PHP</span><span data-tool="laravel">Laravel</span><span data-tool="python">Python</span><span data-tool="mysql">MySQL</span><span data-tool="linux">Linux</span><span data-tool="cisco">Cisco</span><span data-tool="figma">Figma</span><span data-tool="github">GitHub</span></div><div aria-hidden="true"><span data-tool="html5">HTML5</span><span data-tool="css3">CSS3</span><span data-tool="javascript">JavaScript</span><span data-tool="php">PHP</span><span data-tool="laravel">Laravel</span><span data-tool="python">Python</span><span data-tool="mysql">MySQL</span><span data-tool="linux">Linux</span><span data-tool="cisco">Cisco</span><span data-tool="figma">Figma</span><span data-tool="github">GitHub</span></div></div></div>
 
     <!-- 01 PROFIL -->
     <section id="profil">
       <div class="wrap reveal">
         <div class="profil-grid">
           <figure class="profile-portrait">
-            <img src="assets/profile/elijah-diallo.jpeg" alt="Elijah Ismael Diallo" width="1024" height="1024" loading="lazy">
-            <span class="profile-wave" aria-hidden="true">👋</span>
+            <div class="profile-portrait-card">
+              <img src="assets/profile/elijah-diallo.jpeg" alt="Elijah Ismael Diallo" width="1024" height="1024" loading="lazy">
+              <span class="profile-wave" aria-hidden="true">👋</span>
+            </div>
           </figure>
           <div class="profil-side">
             <div class="eyebrow-row"><span class="eyebrow accent" data-i18n="section.profile">À propos</span></div>
             <h2 class="big" data-i18n="profile.title">Faisons connaissance.</h2>
-            <p data-i18n="profile.p1">Étudiant en <strong>Licence Génie Logiciel et Administration Réseau à l'ESTM</strong>, je conçois des applications web modernes, sécurisées et performantes, tout en gérant des infrastructures réseau fiables.</p>
+            <p data-i18n="profile.p1">Étudiant en <strong>Génie Logiciel et Administration Réseau à l'ESTM</strong>, je conçois des applications web modernes, sécurisées et performantes, tout en gérant des infrastructures réseau fiables.</p>
             <p data-i18n="profile.p2">À l'aise dans les environnements <strong>Linux</strong> et les architectures <strong>Cisco</strong>, j'intègre volontiers les outils d'automatisation dans mes projets. Je recherche activement un stage ou une alternance pour contribuer à des projets concrets.</p>
             <div class="email-copy"><a href="mailto:dialloelijahismael@gmail.com">dialloelijahismael@gmail.com</a><button type="button" class="copy-email" data-i18n="copy.email">Copier</button></div>
           </div>
@@ -160,44 +167,47 @@
       </div>
     </section>
 
-    <section id="savoir-faire" class="sf-section">
+    <section id="savoir-faire" class="sf-section" aria-labelledby="skills-title">
       <div class="wrap reveal">
-        <div class="eyebrow-row">
-          <span class="eyebrow accent"><span class="num accent">03</span> <span data-i18n="section.skills">Savoir-faire</span></span>
-          <span class="eyebrow" style="color:var(--orange)" data-i18n="section.atelier">Atelier / index</span>
-        </div>
+        <p class="sf-eyebrow" data-i18n="section.skills">Compétences</p>
         <div class="sf-head">
-          <h2 class="big" data-i18n="skills.title">Mon <em>terrain</em> de jeu.</h2>
-          <p class="sf-lede" data-i18n="skills.lede">Un regard transversal pour faire avancer un produit de l'interface jusqu'à son infrastructure.</p>
+          <h2 id="skills-title"><span data-i18n="skills.title">Ce que j’apporte</span><span class="sf-emblem" aria-hidden="true"><span class="sf-emblem-icon" data-tool="javascript"></span></span></h2>
         </div>
         <div class="sf-grid">
           <div class="sf-card">
-            <span class="idx">01</span>
-            <h3 data-i18n="skills.dev">Développer</h3>
-            <p data-i18n="skills.devText">Des interfaces utiles, rapides et compréhensibles.</p>
-            <div class="tags"><span>Laravel</span><span>PHP</span><span>JavaScript</span><span>HTML5</span><span>CSS3</span><span>Python</span><span>C</span><span data-i18n="skill.algorithm">Algorithmique</span></div>
-            <div class="note">Note / 01</div>
+            <h3 data-i18n="skills.hard">Compétences techniques</h3>
+            <div class="tags sf-hard-tags">
+              <span data-tool="laravel">Laravel</span>
+              <span data-tool="php">PHP</span>
+              <a href="#projets" data-project-tech="javascript" data-tool="javascript">JavaScript</a>
+              <a href="#projets" data-project-tech="html" data-tool="html5">HTML5</a>
+              <a href="#projets" data-project-tech="css" data-tool="css3">CSS3</a>
+              <a href="#projets" data-project-tech="python" data-tool="python">Python</a>
+              <span data-tool="c">C</span>
+              <span data-i18n="skill.algorithm" data-tool="algorithm">Algorithmique</span>
+              <span data-tool="mysql">MySQL</span>
+              <span data-tool="supabase">Supabase</span>
+              <span data-tool="sql">SQL</span>
+              <span data-i18n="skill.model" data-tool="model">Modélisation</span>
+              <span data-tool="linux">Linux</span>
+              <span data-tool="cisco">Cisco</span>
+              <span data-tool="wifi">Wi-Fi</span>
+              <span data-i18n="skill.security" data-tool="security">Sécurité réseau</span>
+              <a href="#projets" data-project-tech="figma" data-tool="figma">Figma</a>
+              <span data-tool="github">GitHub</span>
+              <a href="#projets" data-project-tech="ui/ux" data-tool="design">UI/UX</a>
+              <a href="#projets" data-project-tech="pdf.js" data-tool="pdfjs">PDF.js</a>
+              <a href="#projets" data-project-tech="git" data-tool="git">Git</a>
+            </div>
           </div>
           <div class="sf-card">
-            <span class="idx">02</span>
-            <h3 data-i18n="skills.structure">Structurer</h3>
-            <p data-i18n="skills.structureText">Des données et des services pensés pour durer.</p>
-            <div class="tags"><span>MySQL</span><span>Supabase</span><span>SQL</span><span data-i18n="skill.model">Modélisation</span></div>
-            <div class="note">Note / 02</div>
-          </div>
-          <div class="sf-card">
-            <span class="idx">03</span>
-            <h3 data-i18n="skills.connect">Connecter</h3>
-            <p data-i18n="skills.connectText">Des systèmes et réseaux qui restent fiables au quotidien.</p>
-            <div class="tags"><span>Linux</span><span>Cisco</span><span>Wi-Fi</span><span data-i18n="skill.security">Sécurité réseau</span></div>
-            <div class="note">Note / 03</div>
-          </div>
-          <div class="sf-card">
-            <span class="idx">04</span>
-            <h3 data-i18n="skills.design">Concevoir</h3>
-            <p data-i18n="skills.designText">Des bases visuelles qui rendent chaque parcours évident.</p>
-            <div class="tags"><span>Figma</span><span>GitHub</span><span>UI/UX</span><span>PDF.js</span></div>
-            <div class="note">Note / 04</div>
+            <h3 data-i18n="skills.soft">Savoir-être</h3>
+            <div class="sf-soft-tags">
+              <span data-i18n="skills.teamwork">Travail d’équipe</span>
+              <span data-i18n="skills.adaptability">Adaptabilité</span>
+              <span data-i18n="skills.curiosity">Curiosité</span>
+              <span data-i18n="skills.learning">Envie d’apprendre</span>
+            </div>
           </div>
         </div>
       </div>
@@ -220,9 +230,9 @@
         <div class="project-filters" role="group" aria-label="Filtrer les projets">
           <button type="button" data-filter="all" aria-pressed="true" class="active" data-i18n="filter.all">Tous les projets</button>
           <button type="button" data-filter="web" aria-pressed="false" data-i18n="filter.web">Développement web</button>
-          <button type="button" data-filter="design" aria-pressed="false">UI / UX</button>
+          <button type="button" data-filter="design" aria-pressed="false" data-i18n="filter.design">UI / UX</button>
         </div>
-        <p class="sr-only" id="project-count" aria-live="polite"></p>
+        <div class="project-results"><p id="project-count" aria-live="polite" aria-atomic="true"></p><button id="project-reset" type="button" hidden data-i18n="interactive.reset">Tout afficher</button></div>
         <div class="proj-grid">
           <div class="proj-card featured-project" data-category="web">
             <div class="proj-top">
@@ -235,7 +245,7 @@
             <p data-i18n="projects.p2">Création et export de CV en PDF, sans inscription.</p>
             <p class="project-role" data-i18n="projects.role2">Développement web · création et export PDF</p>
             <div class="proj-meta">
-            <div class="proj-tags"><span>HTML5</span><span>JavaScript</span><span>PDF.js</span></div>
+            <div class="proj-tags"><span data-tool="html5">HTML5</span><span data-tool="javascript">JavaScript</span><span data-tool="pdfjs">PDF.js</span></div>
             <div class="proj-foot">
               <a class="project-link" href="https://sama-cv.netlify.app/" target="_blank" rel="noopener" data-i18n="projects.site">Voir le site ↗</a>
             </div>
@@ -253,7 +263,7 @@
             <p data-i18n="projects.p3">Vote scolaire avec authentification et résultats en temps réel.</p>
             <p class="project-role" data-i18n="projects.role3">Développement web · élections scolaires</p>
             <div class="proj-meta">
-            <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <div class="proj-tags"><span data-tool="html5">HTML</span><span data-tool="css3">CSS</span><span data-tool="javascript">JavaScript</span></div>
             <div class="proj-foot">
               <a class="project-link" href="https://cute-flan-e8d4ac.netlify.app/" target="_blank" rel="noopener" data-i18n="projects.site">Voir le site ↗</a>
             </div>
@@ -270,13 +280,13 @@
             <p data-i18n="projects.p4">Prototype Figma pour gérer les inscriptions, les notes et les statistiques.</p>
             <p class="project-role" data-i18n="projects.role4">Conception UI/UX · suivi scolaire</p>
             <div class="proj-meta">
-            <div class="proj-tags"><span>Figma</span><span>UI/UX</span></div>
+            <div class="proj-tags"><span data-tool="figma">Figma</span><span data-tool="design">UI/UX</span></div>
             <div class="proj-foot">
               <a class="project-link" href="https://rigid-lab-11996764.figma.site/" target="_blank" rel="noopener" data-i18n="projects.mockup">Voir la maquette ↗</a>
             </div>
             </div>
           </div>
-          <div class="proj-card" data-category="web" data-category="design">
+          <div class="proj-card" data-category="design">
             <div class="proj-top">
               <span>04 / medirdv</span>
               <span class="proj-badge badge-progress" data-i18n="projects.badgeBuilding">En cours</span>
@@ -286,12 +296,12 @@
             <p data-i18n="projects.p1">Projet de réservation médicale : rendez-vous, espace patient et administration.</p>
             <p class="project-role" data-i18n="projects.role1">Conception des interfaces · projet en cours</p>
             <div class="proj-meta">
-            <div class="proj-tags"><span>UI/UX</span><span>2026</span></div>
+            <div class="proj-tags"><span data-tool="design">UI/UX</span><span>2026</span></div>
             <div class="proj-foot"><span class="proj-soon" data-i18n="projects.follow">À suivre</span></div>
             </div>
           </div>
 
-          <div class="proj-card">
+          <div class="proj-card" data-category="web">
             <div class="proj-top">
               <span>05 / calculatrice</span>
               <span class="proj-badge badge-online" data-i18n="projects.online">En ligne</span>
@@ -301,7 +311,7 @@
             <p data-i18n="projects.p5">Calculatrice en ligne avec historique des calculs et saisie au clavier.</p>
             <p class="project-role" data-i18n="projects.role5">Développement web · calculatrice interactive</p>
             <div class="proj-meta">
-            <div class="proj-tags"><span>python</span></div>
+            <div class="proj-tags"><span data-tool="python">python</span></div>
             <div class="proj-foot">
               <a class="project-link" href="https://eljah-ops.github.io/calculator/" target="_blank" rel="noopener" data-i18n="projects.site">Voir le site ↗</a>
             </div>
@@ -328,7 +338,28 @@
             <p class="parcours-label" data-i18n="parcours.label">Certifications &amp; formations</p>
             <a class="project-link" href="https://www.credly.com/users/elijah-diallo.f6954987" target="_blank" rel="noopener" data-i18n="parcours.credly">Voir mon profil Credly ↗</a>
           </div>
+          <details class="cert-disclosure" id="certifications">
+            <summary id="certifications-toggle" aria-controls="certifications-panel"><span data-i18n="parcours.tab">Certifications</span><span class="cert-count">10</span><span class="cert-chevron" aria-hidden="true">⌄</span></summary>
+            <div class="cert-panel" id="certifications-panel" role="region" aria-labelledby="certifications-toggle">
           <div class="cert-list">
+            <div class="cert-row">
+              <span class="year">2026</span>
+              <a class="name name-link" href="attestation/administrer-systeme-linux.pdf" target="_blank" rel="noopener" data-i18n="cert.linux">Administrez un système Linux</a>
+              <span class="issuer" data-i18n="date.september14">OpenClassrooms · 14 septembre</span>
+              <span class="check" aria-hidden="true">↗</span>
+            </div>
+            <div class="cert-row">
+              <span class="year">2026</span>
+              <a class="name name-link" href="attestation/cisco-packet-tracer.pdf" target="_blank" rel="noopener">Getting Started with Cisco Packet Tracer</a>
+              <span class="issuer" data-i18n="date.ciscoSeptember12">Cisco Networking Academy · 12 septembre</span>
+              <span class="check" aria-hidden="true">↗</span>
+            </div>
+            <div class="cert-row">
+              <span class="year">2026</span>
+              <a class="name name-link" href="attestation/introduction-cybersecurite.pdf" target="_blank" rel="noopener" data-i18n="cert.cybersecurity">Introduction à la cybersécurité</a>
+              <span class="issuer" data-i18n="date.ciscoSeptember12">Cisco Networking Academy · 12 septembre</span>
+              <span class="check" aria-hidden="true">↗</span>
+            </div>
             <div class="cert-row">
               <span class="year">2026</span>
               <a class="name name-link" href="attestation/CERTFICAT_MISE%20EN%20VEILLE.pdf" target="_blank" rel="noopener">Mettez en place un système de veille informationnelle</a>
@@ -352,6 +383,8 @@
             <div class="cert-row"><span class="year">2024</span><span class="name">Cisco Networking Basics</span><span class="issuer">Cisco</span><span class="check">✓</span></div>
             <div class="cert-row"><span class="year">2024</span><span class="name">Responsive Web Design</span><span class="issuer">freeCodeCamp</span><span class="check">✓</span></div>
           </div>
+            </div>
+          </details>
         </div>
       </div>
     </section>
@@ -560,8 +593,29 @@
   </button>
 
   <dialog id="project-preview" aria-labelledby="preview-title">
-    <div class="preview-toolbar"><h2 id="preview-title"></h2><button type="button" id="preview-close" data-i18n="preview.close">Fermer</button></div>
-    <img id="preview-image" alt="">
+    <div class="preview-toolbar"><p id="preview-position" aria-live="polite" aria-atomic="true"></p><button type="button" id="preview-close" data-i18n="preview.close" autofocus>Fermer</button></div>
+    <div class="preview-layout">
+      <div class="preview-visual"><img id="preview-image" alt=""></div>
+      <div class="preview-details">
+        <span id="preview-status" class="proj-badge"></span>
+        <h2 id="preview-title"></h2>
+        <p id="preview-description"></p>
+        <p id="preview-role" class="project-role"></p>
+        <div id="preview-tags" class="proj-tags"></div>
+        <a id="preview-visit" class="explore-projects" target="_blank" rel="noopener" hidden></a>
+      </div>
+    </div>
+    <div class="preview-navigation"><button type="button" id="preview-prev"><span aria-hidden="true">←</span> <span data-i18n="interactive.previous">Projet précédent</span></button><button type="button" id="preview-next"><span data-i18n="interactive.next">Projet suivant</span> <span aria-hidden="true">→</span></button></div>
+  </dialog>
+
+  <dialog id="quick-nav" aria-labelledby="quick-nav-title">
+    <div class="preview-toolbar"><h2 id="quick-nav-title" data-i18n="interactive.navigate">Navigation rapide</h2><button type="button" id="quick-nav-close" data-i18n="preview.close">Fermer</button></div>
+    <label for="quick-nav-search" data-i18n="interactive.search">Trouver une section, un projet ou une action</label>
+    <input id="quick-nav-search" type="search" autocomplete="off" spellcheck="false" autofocus aria-controls="quick-nav-results">
+    <ul id="quick-nav-results"></ul>
+    <p id="quick-nav-empty" hidden data-i18n="interactive.empty">Aucun résultat. Essaie « projets », « contact » ou « thème ».</p>
+    <p class="quick-nav-hint" data-i18n="interactive.keys">↑ ↓ pour parcourir · Entrée pour ouvrir · Échap pour fermer</p>
+    <p id="quick-nav-count" class="sr-only" aria-live="polite"></p>
   </dialog>
 
   <script>
@@ -576,7 +630,7 @@
     const refreshTheme = () => {
       const dark = document.documentElement.dataset.theme === 'dark';
       const english = document.documentElement.lang === 'en';
-      document.querySelector('meta[name="theme-color"]').content = dark ? '#191619' : '#fbf8f5';
+      document.querySelector('meta[name="theme-color"]').content = dark ? '#0f172a' : '#f8fafc';
       themeLabel.textContent = english ? (dark ? 'Light' : 'Dark') : (dark ? 'Jour' : 'Nuit');
       themeToggle.setAttribute('aria-label', english ? (dark ? 'Use light theme' : 'Use dark theme') : (dark ? 'Activer le thème clair' : 'Activer le thème sombre'));
       themeIcon.innerHTML = dark ? sunPath : moonPath;
@@ -591,6 +645,14 @@
 
     const translations = {
       fr: {
+        'interactive.explore': 'Explorer mes projets',
+        'interactive.navigate': 'Navigation rapide',
+        'interactive.reset': 'Tout afficher',
+        'interactive.previous': 'Projet précédent',
+        'interactive.next': 'Projet suivant',
+        'interactive.search': 'Trouver une section, un projet ou une action',
+        'interactive.empty': 'Aucun résultat. Essaie « projets », « contact » ou « thème ».',
+        'interactive.keys': '↑ ↓ pour parcourir · Entrée pour ouvrir · Échap pour fermer',
         'life.label': 'Quand je ne debug pas',
         'life.title': 'La vie hors du terminal',
         'life.previous': 'Carte précédente', 'life.next': 'Carte suivante',
@@ -608,6 +670,10 @@
         'story.label': 'Du code jusqu’au câble', 'copy.email': 'Copier',
         'filter.all': 'Tous les projets', 'filter.web': 'Développement web',
 
+        "cert.linux": "Administrez un système Linux",
+        "cert.cybersecurity": "Introduction à la cybersécurité",
+        "date.september14": "OpenClassrooms · 14 septembre",
+        "date.ciscoSeptember12": "Cisco Networking Academy · 12 septembre",
         "date.september3": "OpenClassrooms · 3 septembre",
         "date.april8": "OpenClassrooms · 8 avril",
         "date.april6": "OpenClassrooms · 6 avril",
@@ -616,7 +682,7 @@
         "skill.algorithm": "Algorithmique",
         "projects.site": "Voir le site ↗",
         "projects.mockup": "Voir la maquette ↗",
-        "projects.zoom": "Agrandir la capture",
+        "projects.zoom": "Explorer le projet ↗",
         "preview.close": "Fermer",
         "projects.role1": "Conception des interfaces · projet en cours",
         "projects.role2": "Développement web · création et export PDF",
@@ -643,7 +709,7 @@
         'terminal.focus': 'Interfaces utiles et infrastructures fiables',
         'terminal.status': 'ouvert aux opportunités',
         'section.profile': 'À propos',
-        'section.skills': 'Savoir-faire',
+        'section.skills': 'Compétences',
         'section.projects': 'Projets choisis',
         'section.parcours': 'Parcours',
         'section.languages': 'Langues',
@@ -653,10 +719,16 @@
         'section.atelier': 'Atelier / index',
         'profile.quote': '« J\'aime comprendre un système de bout en bout, <em>du code jusqu\'au câble.</em> »',
         'profile.caption': '◇ La fiabilité est un détail qui change tout.',
-        'profile.p1': 'Étudiant en <strong>Licence Génie Logiciel et Administration Réseau à l\'ESTM</strong>, je conçois des applications web modernes, sécurisées et performantes, tout en gérant des infrastructures réseau fiables.',
+        'profile.p1': 'Étudiant en <strong>Génie Logiciel et Administration Réseau à l\'ESTM</strong>, je conçois des applications web modernes, sécurisées et performantes, tout en gérant des infrastructures réseau fiables.',
         'profile.p2': 'À l\'aise dans les environnements <strong>Linux</strong> et les architectures <strong>Cisco</strong>, j\'intègre volontiers les outils d\'automatisation dans mes projets. Je recherche activement un stage ou une alternance pour contribuer à des projets concrets.',
         'profile.link': 'Une idée à connecter ? ↗',
-        'skills.title': 'Mon <em>terrain</em> de jeu.',
+        'skills.title': 'Ce que j’apporte',
+        'skills.hard': 'Compétences techniques',
+        'skills.soft': 'Savoir-être',
+        'skills.teamwork': 'Travail d’équipe',
+        'skills.adaptability': 'Adaptabilité',
+        'skills.curiosity': 'Curiosité',
+        'skills.learning': 'Envie d’apprendre',
         'skills.lede': 'Un regard transversal pour faire avancer un produit de l\'interface jusqu\'à son infrastructure.',
         'skills.dev': 'Développer',
         'skills.devText': 'Des interfaces utiles, rapides et compréhensibles.',
@@ -684,6 +756,7 @@
         'projects.p5': "Calculatrice en ligne avec historique des calculs et saisie au clavier.",
         'parcours.title': 'Continuer <em>d\'apprendre.</em>',
         'parcours.label': 'Certifications &amp; formations',
+        'parcours.tab': 'Certifications',
         'parcours.credly': 'Voir mon profil Credly ↗',
         'languages.title': 'Parler le langage du <em>lien</em>.',
         'languages.wolof': 'Langue maternelle',
@@ -719,6 +792,14 @@
         'scroll.aria': 'Retour en haut'
       },
       en: {
+        'interactive.explore': 'Explore my projects',
+        'interactive.navigate': 'Quick navigation',
+        'interactive.reset': 'Show all',
+        'interactive.previous': 'Previous project',
+        'interactive.next': 'Next project',
+        'interactive.search': 'Find a section, a project or an action',
+        'interactive.empty': 'No results. Try “projects”, “contact” or “theme”.',
+        'interactive.keys': '↑ ↓ to browse · Enter to open · Escape to close',
         'life.label': "When I’m not debugging",
         'life.title': 'Life outside the terminal',
         'life.previous': 'Previous card', 'life.next': 'Next card',
@@ -736,6 +817,10 @@
         'story.label': 'From code to cable', 'copy.email': 'Copy',
         'filter.all': 'All projects', 'filter.web': 'Web development',
 
+        "cert.linux": "Administer a Linux system",
+        "cert.cybersecurity": "Introduction to Cybersecurity",
+        "date.september14": "OpenClassrooms · September 14",
+        "date.ciscoSeptember12": "Cisco Networking Academy · September 12",
         "date.september3": "OpenClassrooms · September 3",
         "date.april8": "OpenClassrooms · April 8",
         "date.april6": "OpenClassrooms · April 6",
@@ -744,7 +829,7 @@
         "skill.algorithm": "Algorithms",
         "projects.site": "Visit website ↗",
         "projects.mockup": "View prototype ↗",
-        "projects.zoom": "Enlarge screenshot",
+        "projects.zoom": "Explore project ↗",
         "preview.close": "Close",
         "projects.role1": "Interface design · work in progress",
         "projects.role2": "Web development · CV creation and PDF export",
@@ -784,7 +869,13 @@
         'profile.p1': 'Student in <strong>Software Engineering and Network Administration at ESTM</strong>, I design modern, secure, and high-performing web applications while managing reliable network infrastructures.',
         'profile.p2': 'Comfortable with <strong>Linux</strong> environments and <strong>Cisco</strong> architectures, I gladly integrate automation tools into my projects. I am actively looking for an internship or apprenticeship to contribute to concrete projects.',
         'profile.link': 'An idea to connect? ↗',
-        'skills.title': 'My <em>playground</em>.',
+        'skills.title': 'What I bring to the table',
+        'skills.hard': 'Hard Skills',
+        'skills.soft': 'Soft Skills',
+        'skills.teamwork': 'Teamwork',
+        'skills.adaptability': 'Adaptability',
+        'skills.curiosity': 'Curiosity',
+        'skills.learning': 'Eagerness to learn',
         'skills.lede': 'A cross-disciplinary perspective that pushes a product from the interface to its infrastructure.',
         'skills.dev': 'Develop',
         'skills.devText': 'Useful, fast, easy-to-understand interfaces.',
@@ -812,6 +903,7 @@
         'projects.p5': "Online calculator with calculation history and keyboard input.",
         'parcours.title': 'Keep <em>learning.</em>',
         'parcours.label': 'Certifications & training',
+        'parcours.tab': 'Certifications',
         'parcours.credly': 'View my Credly profile ↗',
         'languages.title': 'Speaking the language of <em>connection</em>.',
         'languages.wolof': 'Mother tongue',
@@ -891,22 +983,6 @@
 
     applyTranslations(readPreference('portfolio-language') === 'en' ? 'en' : 'fr');
 
-    const preview = document.getElementById('project-preview');
-    const previewImage = document.getElementById('preview-image');
-    document.querySelectorAll('.proj-preview').forEach(button => {
-      button.addEventListener('click', () => {
-        const img = button.querySelector('img');
-        previewImage.src = img.src;
-        previewImage.alt = img.alt;
-        document.getElementById('preview-title').textContent = button.closest('.proj-card').querySelector('h3').textContent;
-        preview.showModal();
-        document.body.classList.add('preview-open');
-      });
-    });
-    document.getElementById('preview-close').addEventListener('click', () => preview.close());
-    preview.addEventListener('click', event => { if (event.target === preview) preview.close(); });
-    preview.addEventListener('close', () => document.body.classList.remove('preview-open'));
-
     // Mobile nav toggle
     const mobileToggle = document.getElementById('mobile-nav-toggle');
     const sideNav = document.getElementById('side-nav');
@@ -976,6 +1052,7 @@
 
   <script src="interactions.js" defer></script>
   <script src="portfolio.js" defer></script>
+  <script src="project-explorer.js" defer></script>
   <script src="life-cards.js" defer></script>
 
 </body>

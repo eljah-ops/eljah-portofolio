@@ -5,7 +5,7 @@ import shutil
 ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / 'dist'
 FILES = ('index.html', 'styles.css',
-         'interactions.js', 'portfolio.js', 'life-cards.js', 'robots.txt')
+         'interactions.js', 'portfolio.js', 'project-explorer.js', 'life-cards.js', 'robots.txt')
 DIRECTORIES = ('assets', 'cv.pdf', 'attestation')
 for name in FILES + DIRECTORIES:
     if not (ROOT / name).exists():
