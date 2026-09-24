@@ -1,0 +1,123 @@
+name: Daily GitHub issue review
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Analyze new issues and publish the daily summary
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const now = new Date();
+            const cutoff = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+            const date = now.toISOString().slice(0, 10);
+            const { owner, repo } = context.repo;
+            const summaryTitle = `[Daily GitHub review] ${date}`;
+
+            const issues = await github.paginate(
+              github.rest.issues.listForRepo,
+              {
+                owner,
+                repo,
+                state: "all",
+                since: cutoff.toISOString(),
+                per_page: 100,
+              },
+              (response) => response.data.filter((issue) => !issue.pull_request),
+            );
+
+            const newIssues = issues.filter(
+              (issue) =>
+                new Date(issue.created_at) >= cutoff &&
+                !issue.title.startsWith("[Daily GitHub review]"),
+            );
+
+            const importantPattern =
+              /\b(critical|urgent|blocker|security|vulnerability|regression|data loss|production down|crash|broken|fail(?:s|ed|ure)?)\b/i;
+            const importantIssues = newIssues.filter((issue) => {
+              const labels = issue.labels.map((label) =>
+                typeof label === "string" ? label : label.name,
+              );
+              const text = `${issue.title}\n${issue.body || ""}`;
+              return (
+                labels.some((label) =>
+                  /^(bug|critical|urgent|security|priority: ?(high|critical)|severity: ?(high|critical))$/i.test(
+                    label,
+                  ),
+                ) || importantPattern.test(text)
+              );
+            });
+
+            const issueLink = (issue) =>
+              `[#${issue.number}](${issue.html_url})`;
+            const formatIssue = (issue) => {
+              const labels = issue.labels
+                .map((label) => (typeof label === "string" ? label : label.name))
+                .filter(Boolean)
+                .map((label) => `\`${label}\``)
+                .join(", ");
+              const excerpt = (issue.body || "")
+                .replace(/\s+/g, " ")
+                .trim()
+                .slice(0, 240);
+              return `- ${issueLink(issue)} — **${issue.title}**${
+                labels ? ` (${labels})` : ""
+              }${excerpt ? `: ${excerpt}${excerpt.length === 240 ? "…" : ""}` : ""}`;
+            };
+
+            const section = (title, entries, emptyText) =>
+              `### ${title}\n${entries.length ? entries.map(formatIssue).join("\n") : emptyText}`;
+
+            const body = [
+              `# Daily GitHub issue review — ${date}`,
+              "",
+              `Generated automatically at ${now.toISOString()}. The scheduled run is configured for 09:00 UTC.`,
+              "",
+              section(
+                "Important bugs requiring attention",
+                importantIssues,
+                "No newly created issue was classified as an important bug.",
+              ),
+              "",
+              section(
+                "New issues",
+                newIssues,
+                "No new issues were created in the last 24 hours.",
+              ),
+              "",
+              `> Scope: issues created since ${cutoff.toISOString()}. Pull requests and previous daily summaries are excluded.`,
+            ].join("\n");
+
+            const existing = await github.paginate(
+              github.rest.issues.listForRepo,
+              { owner, repo, state: "open", per_page: 100 },
+              (response) =>
+                response.data.filter((issue) => issue.title === summaryTitle),
+            );
+
+            if (existing.length > 0) {
+              await github.rest.issues.update({
+                owner,
+                repo,
+                issue_number: existing[0].number,
+                body,
+              });
+              core.info(`Updated ${summaryTitle}.`);
+            } else {
+              await github.rest.issues.create({
+                owner,
+                repo,
+                title: summaryTitle,
+                body,
+              });
+              core.info(`Created ${summaryTitle}.`);
+            }
