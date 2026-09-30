@@ -65,6 +65,7 @@
     const noun = english() ? 'project' : 'projet';
     document.getElementById('project-count').textContent = `${total} ${noun}${total > 1 ? 's' : ''}${techLabel ? ` · ${techLabel}` : ''}`;
     document.getElementById('project-reset').hidden = selectedFilter === 'all' && !selectedTech;
+    document.getElementById('project-empty').hidden = total !== 0;
     document.querySelectorAll('[data-project-tech]').forEach(link => {
       link.setAttribute('aria-label', `${english() ? 'View projects using' : 'Voir les projets avec'} ${link.textContent.replace(' ↗', '')}`);
     });
@@ -89,10 +90,13 @@
     count();
   };
   document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => filter(button.dataset.filter)));
-  document.getElementById('project-reset').addEventListener('click', () => {
+  const resetProjects = () => {
     filter('all');
     document.querySelector('[data-filter="all"]').focus({ preventScroll: true });
-  });
+  };
+  document.getElementById('project-reset').addEventListener('click', resetProjects);
+  document.getElementById('project-empty-reset').addEventListener('click', resetProjects);
+  document.addEventListener('portfolio-show-project', () => filter('all'));
   document.querySelectorAll('[data-project-tech]').forEach(link => link.addEventListener('click', event => {
     event.preventDefault();
     filter('all', link.dataset.projectTech, link.textContent.replace(' ↗', ''));

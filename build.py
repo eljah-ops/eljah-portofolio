@@ -4,7 +4,7 @@ import shutil
 
 ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / 'dist'
-FILES = ('index.html', 'styles.css',
+FILES = ('index.html', 'styles.css', 'chatbot.css', 'chatbot.js',
          'interactions.js', 'portfolio.js', 'project-explorer.js', 'life-cards.js', 'robots.txt')
 DIRECTORIES = ('assets', 'cv.pdf', 'attestation')
 for name in FILES + DIRECTORIES:

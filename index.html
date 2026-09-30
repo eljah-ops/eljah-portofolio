@@ -59,7 +59,8 @@
   }
 }
   </script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=forge-2">
+  <link rel="stylesheet" href="chatbot.css?v=forge-2">
 </head>
 
 <body>
@@ -105,12 +106,14 @@
       <div class="wrap">
         <div class="hero-grid">
           <div>
+            <p class="hero-location" data-i18n="hero.location">Basé à Dakar, Sénégal</p>
             <p class="hero-role" data-i18n="hero.role">Développeur web<br>&amp; administrateur réseau</p>
             <h1 class="big" data-i18n="hero.title">Elijah Ismael <em>Diallo.</em></h1>
             <p class="hero-lede" data-i18n="hero.lede">Je développe des applications web et configure des réseaux fiables. Basé à Dakar, je recherche un stage ou une alternance pour contribuer à des projets concrets.</p>
             <p class="hero-tagline" data-i18n="hero.tagline">Disponible pour un stage ou une alternance</p>
             <div class="hero-actions">
               <a class="explore-projects" href="#projets"><span data-i18n="interactive.explore">Explorer mes projets</span><span aria-hidden="true">↘</span></a>
+              <a class="hero-cv-link" href="cv.pdf/Untitled%20design.pdf" target="_blank" rel="noopener"><span data-i18n="nav.cv">Voir le CV</span><span aria-hidden="true">↗</span></a>
               <button id="quick-nav-open" type="button" aria-haspopup="dialog" aria-controls="quick-nav" hidden><span data-i18n="interactive.navigate">Navigation rapide</span><kbd aria-hidden="true">Ctrl K</kbd></button>
             </div>
             <p class="hero-languages"><span data-i18n="section.languages">Langues</span> <b>Wolof</b><i>·</i><b data-i18n="language.french">Français</b><i>·</i><b data-i18n="language.english">Anglais</b></p>
@@ -233,8 +236,9 @@
           <button type="button" data-filter="design" aria-pressed="false" data-i18n="filter.design">UI / UX</button>
         </div>
         <div class="project-results"><p id="project-count" aria-live="polite" aria-atomic="true"></p><button id="project-reset" type="button" hidden data-i18n="interactive.reset">Tout afficher</button></div>
+        <div id="project-empty" class="project-empty" hidden><p data-i18n="projects.empty">Aucun projet présenté ne correspond à ce filtre.</p><button type="button" id="project-empty-reset" class="project-empty-reset" data-i18n="interactive.reset">Tout afficher</button></div>
         <div class="proj-grid">
-          <div class="proj-card featured-project" data-category="web">
+          <div id="project-sama-cv" class="proj-card featured-project" data-category="web">
             <div class="proj-top">
               <span>01 / sama-cv</span>
               <span class="proj-badge badge-online" data-i18n="projects.online">En ligne</span>
@@ -253,7 +257,7 @@
             </div>
           </div>
 
-          <div class="proj-card orange" data-category="web">
+          <div id="project-votenow" class="proj-card orange" data-category="web">
             <div class="proj-top">
               <span>02 / vote-isi</span>
               <span class="proj-badge badge-online" data-i18n="projects.online">En ligne</span>
@@ -270,7 +274,7 @@
             </div>
           </div>
 
-          <div class="proj-card dark" data-category="design">
+          <div id="project-alhidaya" class="proj-card dark" data-category="design">
             <div class="proj-top">
               <span>03 / alhidaya</span>
               <span class="proj-badge badge-prototype" data-i18n="projects.prototype">Prototype</span>
@@ -286,7 +290,7 @@
             </div>
             </div>
           </div>
-          <div class="proj-card" data-category="design">
+          <div id="project-medirdv" class="proj-card" data-category="design">
             <div class="proj-top">
               <span>04 / medirdv</span>
               <span class="proj-badge badge-progress" data-i18n="projects.badgeBuilding">En cours</span>
@@ -301,7 +305,7 @@
             </div>
           </div>
 
-          <div class="proj-card" data-category="web">
+          <div id="project-calculatrice" class="proj-card" data-category="web">
             <div class="proj-top">
               <span>05 / calculatrice</span>
               <span class="proj-badge badge-online" data-i18n="projects.online">En ligne</span>
@@ -488,6 +492,11 @@
             <a href="mailto:dialloelijahismael@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>dialloelijahismael@gmail.com</span></a>
             <button type="button" class="copy-email" data-i18n="copy.email">Copier</button>
           </div>
+          <div class="contact-actions">
+            <a class="contact-action-primary" href="mailto:dialloelijahismael@gmail.com"><span data-i18n="contact.write">Échangeons par email</span><span aria-hidden="true">↗</span></a>
+            <a href="cv.pdf/Untitled%20design.pdf" target="_blank" rel="noopener" data-i18n="nav.cv">Voir le CV</a>
+            <a href="tel:+221775979841" data-i18n="contact.call">Appeler</a>
+          </div>
         </div>
         <aside class="contact-facts" aria-labelledby="contact-facts-title">
           <h3 id="contact-facts-title" data-i18n="contact.facts">En bref</h3>
@@ -648,6 +657,10 @@
         'interactive.explore': 'Explorer mes projets',
         'interactive.navigate': 'Navigation rapide',
         'interactive.reset': 'Tout afficher',
+        'hero.location': 'Basé à Dakar, Sénégal',
+        'projects.empty': 'Aucun projet présenté ne correspond à ce filtre.',
+        'contact.write': 'Échangeons par email',
+        'contact.call': 'Appeler',
         'interactive.previous': 'Projet précédent',
         'interactive.next': 'Projet suivant',
         'interactive.search': 'Trouver une section, un projet ou une action',
@@ -699,7 +712,7 @@
         'nav.skills': 'Compétences',
         'nav.projects': 'Projets',
         'nav.contact': 'Contact',
-        'hero.role': 'Développeur web & administrateur réseau à Dakar',
+        'hero.role': 'Développeur web & administrateur réseau',
         "hero.title": "Elijah Ismael <em>Diallo.</em>",
         "hero.lede": "Je développe des applications web et configure des réseaux fiables. Basé à Dakar, je recherche un stage ou une alternance pour contribuer à des projets concrets.",
         'hero.projects': 'Voir les réalisations ↘',
@@ -795,6 +808,10 @@
         'interactive.explore': 'Explore my projects',
         'interactive.navigate': 'Quick navigation',
         'interactive.reset': 'Show all',
+        'hero.location': 'Based in Dakar, Senegal',
+        'projects.empty': 'No featured project matches this filter.',
+        'contact.write': 'Let’s talk by email',
+        'contact.call': 'Call',
         'interactive.previous': 'Previous project',
         'interactive.next': 'Next project',
         'interactive.search': 'Find a section, a project or an action',
@@ -846,7 +863,7 @@
         'nav.skills': 'Skills',
         'nav.projects': 'Projects',
         'nav.contact': 'Contact',
-        'hero.role': 'Web developer & network administrator in Dakar',
+        'hero.role': 'Web developer & network administrator',
         "hero.title": "Elijah Ismael <em>Diallo.</em>",
         "hero.lede": "I build web applications and configure reliable networks. Based in Dakar, I am looking for an internship or work-study opportunity to contribute to real projects.",
         'hero.projects': 'View projects ↘',
@@ -1050,10 +1067,11 @@
     document.querySelectorAll('.lang-fill').forEach(el => langObserver.observe(el));
   </script>
 
-  <script src="interactions.js" defer></script>
-  <script src="portfolio.js" defer></script>
+  <script src="interactions.js?v=forge-2" defer></script>
+  <script src="portfolio.js?v=forge-2" defer></script>
   <script src="project-explorer.js" defer></script>
   <script src="life-cards.js" defer></script>
+  <script src="chatbot.js?v=forge-3" defer></script>
 
 </body>
 

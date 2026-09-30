@@ -171,9 +171,9 @@
         played = true;
         if (motion.matches || typeof portraitCard.animate !== 'function') return;
         spin = portraitCard.animate([
-          { transform: 'perspective(900px) rotateY(0deg)' },
-          { transform: 'perspective(900px) rotateY(720deg)' }
-        ], { duration: 2200, easing: 'cubic-bezier(.45,0,.2,1)' });
+          { opacity: 0.7, transform: 'translateY(12px)' },
+          { opacity: 1, transform: 'translateY(0)' }
+        ], { duration: 500, easing: 'ease-out' });
         const animation = spin;
         active.add(animation);
         const release = () => {
