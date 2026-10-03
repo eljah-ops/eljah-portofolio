@@ -133,14 +133,14 @@
               </div>
               <div class="story-slide story-project" hidden><img src="assets/projects/sama-cv.png" alt="Interface de Sama CV" width="1851" height="930"><div class="story-caption"><span data-i18n="projects.role2">Création et export PDF</span><strong>Sama CV</strong></div></div>
               <div class="story-slide story-project" hidden><img src="assets/projects/vote-isi.png" alt="Interface de VoteNow" width="1851" height="930"><div class="story-caption"><span data-i18n="projects.role3">Élections scolaires</span><strong>VoteNow — ISI</strong></div></div>
-              <div class="story-slide story-project" hidden><img src="assets/projects/alhidaya.png" alt="Maquette Alhidaya" width="1851" height="930"><div class="story-caption"><span data-i18n="projects.role4">Suivi scolaire</span><strong>Alhidaya</strong></div></div>
+              <div class="story-slide story-project" hidden><img src="assets/projects/alhidaya-gestion.png" alt="Tableau de bord Al Hidaya Gestion" width="1855" height="927"><div class="story-caption"><span data-i18n="projects.role4">Suivi scolaire</span><strong>Al Hidaya Gestion</strong></div></div>
               <div class="story-controls"><button type="button" id="story-prev" aria-label="Image précédente">←</button><button type="button" id="story-pause" aria-label="Mettre en pause">Ⅱ</button><button type="button" id="story-next" aria-label="Image suivante">→</button></div>
             </div>
             <div class="story-thumbs" role="group" aria-label="Choisir une image">
               <button type="button" data-slide="0" class="active" aria-label="Elijah Ismael Diallo" aria-pressed="true"><img src="assets/profile/elijah-diallo.jpeg" alt="" width="56" height="72"></button>
               <button type="button" data-slide="1" aria-label="Sama CV" aria-pressed="false"><img src="assets/projects/sama-cv.png" alt="" width="56" height="72"></button>
               <button type="button" data-slide="2" aria-label="VoteNow" aria-pressed="false"><img src="assets/projects/vote-isi.png" alt="" width="56" height="72"></button>
-              <button type="button" data-slide="3" aria-label="Alhidaya" aria-pressed="false"><img src="assets/projects/alhidaya.png" alt="" width="56" height="72"></button>
+              <button type="button" data-slide="3" aria-label="Al Hidaya Gestion" aria-pressed="false"><img src="assets/projects/alhidaya-gestion.png" alt="" width="56" height="72"></button>
             </div>
           </div>
         </div>
@@ -274,19 +274,19 @@
             </div>
           </div>
 
-          <div id="project-alhidaya" class="proj-card dark" data-category="design">
+          <div id="project-alhidaya" class="proj-card dark" data-category="web">
             <div class="proj-top">
               <span>03 / alhidaya</span>
-              <span class="proj-badge badge-prototype" data-i18n="projects.prototype">Prototype</span>
+              <span class="proj-badge badge-online" data-i18n="projects.online">En ligne</span>
             </div>
-            <button class="proj-preview" type="button" aria-haspopup="dialog"><img src="assets/projects/alhidaya.png" alt="Alhidaya" width="1851" height="930" loading="lazy" decoding="async"><span class="preview-caption" data-i18n="projects.zoom">Agrandir la capture</span></button>
-            <h3 data-i18n="projects.t4">Alhidaya</h3>
-            <p data-i18n="projects.p4">Prototype Figma pour gérer les inscriptions, les notes et les statistiques.</p>
-            <p class="project-role" data-i18n="projects.role4">Conception UI/UX · suivi scolaire</p>
+            <button class="proj-preview" type="button" aria-haspopup="dialog"><img src="assets/projects/alhidaya-gestion.png" alt="Tableau de bord Al Hidaya Gestion" width="1855" height="927" loading="lazy" decoding="async"><span class="preview-caption" data-i18n="projects.zoom">Agrandir la capture</span></button>
+            <h3 data-i18n="projects.t4">Al Hidaya Gestion</h3>
+            <p data-i18n="projects.p4">Application de gestion scolaire : inscriptions, versements en espèces, reçus et suivi des impayés.</p>
+            <p class="project-role" data-i18n="projects.role4">Développement full stack · compte administrateur unique</p>
             <div class="proj-meta">
-            <div class="proj-tags"><span data-tool="figma">Figma</span><span data-tool="design">UI/UX</span></div>
+            <div class="proj-tags"><span data-tool="python">Python</span><span>Django</span><span>PostgreSQL</span><span data-tool="supabase">Supabase</span><span>Render</span></div>
             <div class="proj-foot">
-              <a class="project-link" href="https://rigid-lab-11996764.figma.site/" target="_blank" rel="noopener" data-i18n="projects.mockup">Voir la maquette ↗</a>
+              <a class="project-link" href="https://alhidaya-school-management.onrender.com/connexion/" target="_blank" rel="noopener" data-i18n="projects.adminSite">Voir le site · accès administrateur ↗</a>
             </div>
             </div>
           </div>
@@ -694,13 +694,14 @@
         "skill.model": "Modélisation",
         "skill.algorithm": "Algorithmique",
         "projects.site": "Voir le site ↗",
+        "projects.adminSite": "Voir le site · accès administrateur ↗",
         "projects.mockup": "Voir la maquette ↗",
         "projects.zoom": "Explorer le projet ↗",
         "preview.close": "Fermer",
         "projects.role1": "Conception des interfaces · projet en cours",
         "projects.role2": "Développement web · création et export PDF",
         "projects.role3": "Développement web · élections scolaires",
-        "projects.role4": "Conception UI/UX · suivi scolaire",
+        "projects.role4": "Développement full stack · compte administrateur unique",
         "projects.role5": "Développement web · calculatrice interactive",
         "about.more": "Témoignages et questions fréquentes",
         "language.french": "Français",
@@ -763,8 +764,8 @@
         'projects.p2': "Création et export de CV en PDF, sans inscription.",
         "projects.t3": "VoteNow — ISI",
         'projects.p3': "Vote scolaire avec authentification et résultats en temps réel.",
-        "projects.t4": "Alhidaya",
-        'projects.p4': "Prototype Figma pour gérer les inscriptions, les notes et les statistiques.",
+        "projects.t4": "Al Hidaya Gestion",
+        'projects.p4': "Application de gestion scolaire : inscriptions, versements en espèces, reçus et suivi des impayés.",
         "projects.t5": "Calculatrice",
         'projects.p5': "Calculatrice en ligne avec historique des calculs et saisie au clavier.",
         'parcours.title': 'Continuer <em>d\'apprendre.</em>',
@@ -845,13 +846,14 @@
         "skill.model": "Data modeling",
         "skill.algorithm": "Algorithms",
         "projects.site": "Visit website ↗",
+        "projects.adminSite": "Visit website · admin access ↗",
         "projects.mockup": "View prototype ↗",
         "projects.zoom": "Explore project ↗",
         "preview.close": "Close",
         "projects.role1": "Interface design · work in progress",
         "projects.role2": "Web development · CV creation and PDF export",
         "projects.role3": "Web development · school elections",
-        "projects.role4": "UI/UX design · school management",
+        "projects.role4": "Full-stack development · single administrator account",
         "projects.role5": "Web development · interactive calculator",
         "about.more": "Testimonials and frequently asked questions",
         "language.french": "French",
@@ -914,8 +916,8 @@
         'projects.p2': "Create and export a CV as a PDF, without signing up.",
         "projects.t3": "VoteNow — ISI",
         'projects.p3': "School voting with authentication and real-time results.",
-        "projects.t4": "Alhidaya",
-        'projects.p4': "Figma prototype for enrollment, grades, and statistics.",
+        "projects.t4": "Al Hidaya Gestion",
+        'projects.p4': "School management application: enrollment, cash payments, receipts, and outstanding balances.",
         "projects.t5": "Calculator",
         'projects.p5': "Online calculator with calculation history and keyboard input.",
         'parcours.title': 'Keep <em>learning.</em>',
