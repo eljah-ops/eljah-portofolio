@@ -20,7 +20,7 @@
     projects: ['projet','projets','realisation','realisations','application','applications','project','projects','built','work'],
     profile: ['profil','presentation','presente','parcours','qui','about','who','background','experience']
   };
-  const technologies = ['javascript','typescript','python','php','laravel','html','html5','css','css3','sql','mysql','postgresql','react','vue','angular','node','next','figma','git','linux','cisco','docker','java','c++','ui','ux','pdf js','github','supabase'];
+  const technologies = ['javascript','typescript','python','django','php','laravel','html','html5','css','css3','sql','mysql','postgresql','react','vue','angular','node','next','figma','git','linux','cisco','docker','render','java','c++','ui','ux','pdf js','github','supabase'];
   const referencesCurrentProject = query => /\b(ce projet|cet outil|cette application|this project|it|dessus)\b/.test(query) || /^(et |and )?(sa|son|ses|its)\b/.test(query);
   function resolve(question, previous, projects = []) {
     const query = normalize(question);
@@ -59,7 +59,9 @@
   function projectData(){return all('.proj-card').map((el,i)=>{
     const title=text($('h3',el)), slug=normalize(title).replace(/ /g,'-');
     if(!el.id)el.id='portfolio-project-'+slug;
-    return {id:'project-'+i,title,aliases:[normalize(title),...(i===1?['votenow','vote isi']:[])],description:text($('p:not(.project-role)',el)),role:text($('.project-role',el)),tags:all('.proj-tags span',el).map(text),status:text($('.proj-badge',el)),source:'#'+el.id,url:$('.project-link',el)?.getAttribute('href')};
+    const aliases=[normalize(title),...(i===1?['votenow','vote isi']:[])];
+    if(normalize(title).includes('al hidaya'))aliases.push('al hidaya','alhidaya');
+    return {id:'project-'+i,title,aliases,description:text($('p:not(.project-role)',el)),role:text($('.project-role',el)),tags:all('.proj-tags span',el).map(text),status:text($('.proj-badge',el)),source:'#'+el.id,url:$('.project-link',el)?.getAttribute('href')};
   });}
   function knowledge(id, tech=[], options={}){
     const source=(href,title)=>({href,title:title||tr('Voir la source','View source')});

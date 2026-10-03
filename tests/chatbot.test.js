@@ -2,7 +2,11 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
 const {route,normalize}=require('../chatbot.js');
-const projects=[{id:'project-0',aliases:['sama cv']},{id:'project-1',aliases:['votenow isi','votenow','vote isi']}];
+const projects=[
+  {id:'project-0',aliases:['sama cv']},
+  {id:'project-1',aliases:['votenow isi','votenow','vote isi']},
+  {id:'project-2',aliases:['al hidaya gestion','al hidaya','alhidaya']}
+];
 const match=(q,previous)=>route(q,previous,projects);
 test('short words: CV is actionable, UI/UX are recognised technologies',()=>{
   assert.deepEqual(match('CV ?').ids,['cv']);
@@ -32,6 +36,12 @@ test('followups retain project while unsupported technology remains explicit',()
 });
 test('technology-filtered project query does not silently become generic skills',()=>{
   assert.deepEqual(match('Quels projets utilisent Python ?'),{ids:['projects'],tech:['python']});
+  assert.deepEqual(match('Quels projets utilisent Django et Render ?'),{ids:['projects'],tech:['django','render']});
+});
+
+test('the live Al Hidaya project is recognised by its common names',()=>{
+  assert.deepEqual(match('Parle-moi de Al Hidaya').ids,['project-2']);
+  assert.deepEqual(match('Alhidaya utilise Django ?'),{ids:['project-2'],tech:['django']});
 });
 test('French and English topics, unknowns and salutations',()=>{
   for(const q of ['Quelles langues ?','English level?'])assert.equal(match(q).ids[0],'languages');
