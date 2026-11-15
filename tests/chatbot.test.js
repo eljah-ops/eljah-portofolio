@@ -8,6 +8,11 @@ const projects=[
   {id:'project-2',aliases:['al hidaya gestion','al hidaya','alhidaya']}
 ];
 const match=(q,previous)=>route(q,previous,projects);
+test('AI and automation questions resolve to the dedicated topic',()=>{
+  assert.deepEqual(match('Tu fais des automatisations ?').ids,['automation']);
+  assert.deepEqual(match('Comment utilises-tu l’IA ?').ids,['automation']);
+  assert.deepEqual(match('AI automation').ids,['automation']);
+});
 test('short words: CV is actionable, UI/UX are recognised technologies',()=>{
   assert.deepEqual(match('CV ?').ids,['cv']);
   assert.deepEqual(match('UI / UX').tech,['ui','ux']);

@@ -4,6 +4,7 @@
   const normalize = value => String(value).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9+#]+/g, ' ').trim();
   const has = (value, phrase) => (` ${value} `).includes(` ${normalize(phrase)} `);
   const aliases = {
+    automation: ['ia','intelligence artificielle','automatisation','automatisations','orchestration','ai','automation','automations'],
     cv: ['cv','resume','curriculum','curriculum vitae','download','telecharger'],
     contact: ['contact','contacter','joindre','email','mail','telephone','numero','linkedin','github','coordonnees','reach'],
     languages: ['langue','langues','anglais','francais','wolof','language','languages','english','french'],
@@ -59,7 +60,7 @@
   function projectData(){return all('.proj-card').map((el,i)=>{
     const title=text($('h3',el)), slug=normalize(title).replace(/ /g,'-');
     if(!el.id)el.id='portfolio-project-'+slug;
-    const aliases=[normalize(title),...(i===1?['votenow','vote isi']:[])];
+    const aliases=[normalize(title),...(normalize(title).includes('votenow')?['votenow','vote isi']:[])];
     if(normalize(title).includes('al hidaya'))aliases.push('al hidaya','alhidaya');
     return {id:'project-'+i,title,aliases,description:text($('p:not(.project-role)',el)),role:text($('.project-role',el)),tags:all('.proj-tags span',el).map(text),status:text($('.proj-badge',el)),source:'#'+el.id,url:$('.project-link',el)?.getAttribute('href')};
   });}
@@ -88,6 +89,7 @@
     const faqIds=['services','location','timing','process','pricing'];
     if(faqIds.includes(id)){const el=all('.faq-item')[faqIds.indexOf(id)];if(el){if(!el.id)el.id='portfolio-faq-'+id;base.paragraphs=[text($('p',el))];base.actions=[source('#'+el.id),contactAction];}return base;}
     switch(id){
+      case 'automation':base.title=tr('IA & automatisations','AI & automation');base.paragraphs=[tr('Elijah combine développement, outils IA et automatisations : cadrer le besoin, connecter les outils et vérifier le résultat. Il utilise également Docker pour ses environnements conteneurisés.','Elijah combines development, AI tools and automation: defining needs, connecting tools and checking results. He also uses Docker for containerized environments.'),tr('Ce guide fonctionne localement avec les informations publiées ; il ne fait pas appel à un modèle génératif.','This guide uses published information locally; it does not call a generative model.')];base.actions=[source('#orchestration',tr('Découvrir sa démarche','Explore his approach')),contactAction];break;
       case 'profile':base.paragraphs=all('#profil p[data-i18n]').slice(0,2).map(text);base.actions=[source('#profil'),cvAction];break;
       case 'skills':{
         const tags=all('.sf-hard-tags > *').map(text);
@@ -150,6 +152,23 @@
     $('.chat-composer',dialog).onsubmit=e=>{e.preventDefault();ask(input.value);};
     $('.chat-new',dialog).onclick=()=>{history=[];previous=null;renderConversation();input.value='';input.oninput();$('.chat-sidebar',dialog).classList.remove('is-open');$('.chat-topics-toggle',dialog).setAttribute('aria-expanded','false');input.focus();};renderConversation();
   }
-  render();document.addEventListener('portfolio-language',render);
+  function refineCockpit(){
+    $('.chat-sidebar',dialog).hidden=true;
+    $('.chat-topics-toggle',dialog).hidden=true;
+    $('.chat-modes',dialog).hidden=true;
+    $('.chat-eyebrow',dialog).textContent=tr('ELJAH / ASSISTANT PORTFOLIO','ELJAH / PORTFOLIO ASSISTANT');
+    $('.chat-welcome h2',dialog).textContent=tr('Faisons les présentations.','Let’s get acquainted.');
+    $('.chat-intro',dialog).textContent=tr('Un aperçu de mon parcours, des projets concrets et ma façon de travailler. Par où souhaitez-vous commencer ?','My background, real projects and how I work. Where would you like to start?');
+    $('#chat-title',dialog).textContent=tr('Eljah / Assistant','Eljah / Assistant');
+    $('.chat-launcher-copy',launcher).firstChild.textContent=tr('Rencontrer Eljah','Meet Eljah');
+    const suggestions=$('.chat-suggestions',dialog);suggestions.replaceChildren();
+    const momentum=projectData().find(p=>normalize(p.title)==='momentum');
+    const entries=[['profile',tr('Mon profil en 30 secondes','My profile in 30 seconds'),tr('Parcours et CV','Background and résumé')],[momentum?.id||'projects','Momentum',tr('Projet en développement','Project in development')],['automation',tr('IA & automatisations','AI & automation'),tr('Ma façon de travailler','How I work')]];
+    entries.forEach(([id,title,subtitle],i)=>{const b=document.createElement('button');b.type='button';const n=document.createElement('span');n.className='cockpit-number';n.textContent='0'+(i+1);const titleEl=document.createElement('strong');titleEl.textContent=title;const small=document.createElement('small');small.textContent=subtitle;b.append(n,titleEl,small);b.onclick=()=>ask(title,id);suggestions.append(b);});
+    const actions=$('.chat-header-actions',dialog);
+    const reset=document.createElement('button');reset.type='button';reset.className='cockpit-reset';reset.textContent=tr('Recommencer','Start over');reset.onclick=()=>$('.chat-new',dialog).click();actions.prepend(reset);
+    const expand=document.createElement('button');expand.type='button';expand.className='cockpit-expand';expand.textContent='⤢';expand.setAttribute('aria-label',tr('Agrandir le panneau','Expand panel'));expand.setAttribute('aria-pressed',String(dialog.classList.contains('is-expanded')));expand.onclick=()=>{const expanded=dialog.classList.toggle('is-expanded');expand.setAttribute('aria-pressed',String(expanded));expand.setAttribute('aria-label',expanded?tr('Réduire le panneau','Reduce panel'):tr('Agrandir le panneau','Expand panel'));};actions.insertBefore(expand,$('.chat-close',dialog));
+  }
+  render();refineCockpit();document.addEventListener('portfolio-language',()=>{render();refineCockpit();});
   if(new URLSearchParams(location.search).get('assistant')==='1')open();
 })(typeof window!=='undefined'?window:globalThis);

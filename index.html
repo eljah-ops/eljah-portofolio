@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elijah Ismael Diallo — Développeur web & administrateur réseau</title>
+  <title>Elijah Ismael Diallo — Développeur Full Stack junior</title>
   <meta name="description"
-    content="Elijah Ismael Diallo, développeur web et administrateur réseau à Dakar. Découvrez mes projets, compétences et parcours. Disponible pour un stage ou une alternance.">
+    content="Elijah Ismael Diallo, développeur Full Stack junior à Dakar. Découvrez ses applications web, projets open source et compétences JavaScript, Python, PostgreSQL et Git.">
   <meta name="theme-color" content="#f8fafc">
   <meta name="author" content="Elijah Ismael Diallo">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -14,13 +14,14 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Elijah Ismael Diallo — Portfolio">
   <meta property="og:title" content="Elijah Ismael Diallo — Développeur web à Dakar">
-  <meta property="og:description" content="Projets web, compétences et parcours en développement et administration réseau. Disponible pour un stage ou une alternance.">
+  <meta property="og:description" content="Projets web, compétences et parcours en développement Full Stack. Disponible pour une collaboration remote, freelance, un stage ou une alternance.">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Elijah Ismael Diallo — Développeur web à Dakar">
   <meta name="twitter:description" content="Découvrez mes projets web, mes compétences et mon parcours. Basé à Dakar, Sénégal.">
 
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='4' fill='%230a0a0f'/%3E%3Cpath d='M6 6h9v9H6z' fill='none' stroke='%23a78bfa' stroke-width='1.6'/%3E%3Cpath d='M15 6l3-2v3z' fill='%2334d399'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/profile/favicon-elijah-32.png?v=1">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/profile/favicon-elijah-192.png?v=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/profile/favicon-elijah-180.png?v=1">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,6 +62,9 @@
   </script>
   <link rel="stylesheet" href="styles.css?v=forge-2">
   <link rel="stylesheet" href="chatbot.css?v=forge-2">
+  <link rel="stylesheet" href="studio.css">
+  <link rel="stylesheet" href="cockpit.css">
+  <link rel="stylesheet" href="reference-design.css?v=20261115-2">
 </head>
 
 <body>
@@ -107,13 +111,13 @@
         <div class="hero-grid">
           <div>
             <p class="hero-location" data-i18n="hero.location">Basé à Dakar, Sénégal</p>
-            <p class="hero-role" data-i18n="hero.role">Développeur web<br>&amp; administrateur réseau</p>
+            <p class="hero-role" data-i18n="hero.role">Développeur Full Stack junior<br>&amp; administrateur réseau</p>
             <h1 class="big" data-i18n="hero.title">Elijah Ismael <em>Diallo.</em></h1>
-            <p class="hero-lede" data-i18n="hero.lede">Je développe des applications web et configure des réseaux fiables. Basé à Dakar, je recherche un stage ou une alternance pour contribuer à des projets concrets.</p>
-            <p class="hero-tagline" data-i18n="hero.tagline">Disponible pour un stage ou une alternance</p>
+            <p class="hero-lede" data-i18n="hero.lede">Je construis des applications web utiles, de l’interface aux données, et je configure des réseaux fiables. Basé à Dakar, je suis ouvert aux collaborations remote, missions freelance, stages et alternances.</p>
+            <p class="hero-tagline" data-i18n="hero.tagline">Ouvert aux collaborations remote · freelance · stage · alternance</p>
             <div class="hero-actions">
               <a class="explore-projects" href="#projets"><span data-i18n="interactive.explore">Explorer mes projets</span><span aria-hidden="true">↘</span></a>
-              <a class="hero-cv-link" href="cv.pdf/Untitled%20design.pdf" target="_blank" rel="noopener"><span data-i18n="nav.cv">Voir le CV</span><span aria-hidden="true">↗</span></a>
+              <a class="hero-cv-link" href="cv.pdf/CV_Elijah_Diallo_Full_Stack.pdf" target="_blank" rel="noopener"><span data-i18n="nav.cv">Voir le CV</span><span aria-hidden="true">↗</span></a>
               <button id="quick-nav-open" type="button" aria-haspopup="dialog" aria-controls="quick-nav" hidden><span data-i18n="interactive.navigate">Navigation rapide</span><kbd aria-hidden="true">Ctrl K</kbd></button>
             </div>
             <p class="hero-languages"><span data-i18n="section.languages">Langues</span> <b>Wolof</b><i>·</i><b data-i18n="language.french">Français</b><i>·</i><b data-i18n="language.english">Anglais</b></p>
@@ -149,6 +153,20 @@
 
     <div class="tech-marquee" aria-label="HTML, CSS, JavaScript, PHP, Laravel, Python, MySQL, Linux, Cisco, Figma et GitHub"><div class="tech-track"><div><span data-tool="html5">HTML5</span><span data-tool="css3">CSS3</span><span data-tool="javascript">JavaScript</span><span data-tool="php">PHP</span><span data-tool="laravel">Laravel</span><span data-tool="python">Python</span><span data-tool="mysql">MySQL</span><span data-tool="linux">Linux</span><span data-tool="cisco">Cisco</span><span data-tool="figma">Figma</span><span data-tool="github">GitHub</span></div><div aria-hidden="true"><span data-tool="html5">HTML5</span><span data-tool="css3">CSS3</span><span data-tool="javascript">JavaScript</span><span data-tool="php">PHP</span><span data-tool="laravel">Laravel</span><span data-tool="python">Python</span><span data-tool="mysql">MySQL</span><span data-tool="linux">Linux</span><span data-tool="cisco">Cisco</span><span data-tool="figma">Figma</span><span data-tool="github">GitHub</span></div></div></div>
 
+    <section id="orchestration" class="ai-studio" aria-labelledby="ai-title">
+      <div class="wrap">
+        <p class="studio-kicker">ELJAH / AUTOMATISATION & INTELLIGENCE ARTIFICIELLE</p>
+        <h2 id="ai-title">Je n’utilise pas simplement l’IA.<br><em>Je l’orchestre.</em></h2>
+        <p class="studio-intro">Je combine développement, outils IA et automatisations pour transformer des tâches répétitives en processus utiles. Mon rôle : cadrer le besoin, connecter les outils et vérifier le résultat.</p>
+        <div class="studio-grid">
+          <article><span>01 / CONCEVOIR</span><h3>Des automatisations utiles.</h3><p>Relier des étapes, organiser les échanges entre outils et réduire les manipulations répétitives.</p></article>
+          <article><span>02 / ORCHESTRER</span><h3>L’IA avec une direction.</h3><p>Décomposer un objectif, donner du contexte aux assistants et contrôler leurs productions.</p></article>
+          <article><span>03 / EXÉCUTER</span><h3>Des environnements maîtrisés.</h3><p>J’utilise Docker pour travailler avec des services conteneurisés, aux côtés de Git et Linux.</p></article>
+        </div>
+        <div class="assistant-preview"><div><p class="studio-kicker">ASSISTANT / GUIDE DU PORTFOLIO</p><h3>Votre visite, en conversation.</h3><p>Projets, compétences, disponibilité : explorez mon profil avec un guide local aux réponses issues du site.</p></div><button type="button" onclick="document.querySelector('.chat-launcher').click()">Ouvrir le cockpit ↗</button></div>
+      </div>
+    </section>
+
     <!-- 01 PROFIL -->
     <section id="profil">
       <div class="wrap reveal">
@@ -163,7 +181,7 @@
             <div class="eyebrow-row"><span class="eyebrow accent" data-i18n="section.profile">À propos</span></div>
             <h2 class="big" data-i18n="profile.title">Faisons connaissance.</h2>
             <p data-i18n="profile.p1">Étudiant en <strong>Génie Logiciel et Administration Réseau à l'ESTM</strong>, je conçois des applications web modernes, sécurisées et performantes, tout en gérant des infrastructures réseau fiables.</p>
-            <p data-i18n="profile.p2">À l'aise dans les environnements <strong>Linux</strong> et les architectures <strong>Cisco</strong>, j'intègre volontiers les outils d'automatisation dans mes projets. Je recherche activement un stage ou une alternance pour contribuer à des projets concrets.</p>
+            <p data-i18n="profile.p2">À l'aise dans les environnements <strong>Linux</strong> et les architectures <strong>Cisco</strong>, j'intègre volontiers les outils d'automatisation et les bases de données SQL dans mes projets. Je suis ouvert aux collaborations remote, missions freelance, stages et alternances.</p>
             <div class="email-copy"><a href="mailto:dialloelijahismael@gmail.com">dialloelijahismael@gmail.com</a><button type="button" class="copy-email" data-i18n="copy.email">Copier</button></div>
           </div>
         </div>
@@ -189,10 +207,14 @@
               <span data-tool="c">C</span>
               <span data-i18n="skill.algorithm" data-tool="algorithm">Algorithmique</span>
               <span data-tool="mysql">MySQL</span>
+              <span>PostgreSQL</span>
               <span data-tool="supabase">Supabase</span>
               <span data-tool="sql">SQL</span>
               <span data-i18n="skill.model" data-tool="model">Modélisation</span>
               <span data-tool="linux">Linux</span>
+              <span>Docker</span>
+              <span>Automatisation</span>
+              <span>Orchestration IA</span>
               <span data-tool="cisco">Cisco</span>
               <span data-tool="wifi">Wi-Fi</span>
               <span data-i18n="skill.security" data-tool="security">Sécurité réseau</span>
@@ -238,6 +260,12 @@
         <div class="project-results"><p id="project-count" aria-live="polite" aria-atomic="true"></p><button id="project-reset" type="button" hidden data-i18n="interactive.reset">Tout afficher</button></div>
         <div id="project-empty" class="project-empty" hidden><p data-i18n="projects.empty">Aucun projet présenté ne correspond à ce filtre.</p><button type="button" id="project-empty-reset" class="project-empty-reset" data-i18n="interactive.reset">Tout afficher</button></div>
         <div class="proj-grid">
+          <article id="project-momentum" class="proj-card momentum-project" data-category="web">
+            <div class="proj-top"><span>EN COURS / MOMENTUM</span><span class="proj-badge badge-prototype">En développement</span></div>
+            <div class="momentum-art" aria-label="Identité visuelle conceptuelle de Momentum"><span>M /</span><strong>Momentum</strong><small>CONSTRUIRE. TESTER. AMÉLIORER.</small></div>
+            <h3>Momentum</h3><p>Un projet en cours de développement, que je construis et améliore progressivement.</p><p class="project-role">Conception et développement · travail en cours</p>
+            <div class="proj-meta"><div class="proj-tags"><span>Développement web</span></div><div class="proj-foot"><span class="proj-soon">Présentation détaillée à venir</span></div></div>
+          </article>
           <div id="project-sama-cv" class="proj-card featured-project" data-category="web">
             <div class="proj-top">
               <span>01 / sama-cv</span>
@@ -487,7 +515,7 @@
       </h2>
       <div class="contact-layout">
         <div class="contact-intro">
-          <p data-i18n="contact.lede">Je recherche un <strong>stage ou une alternance</strong> en développement web et administration réseau. Si vous cherchez un profil motivé, curieux et prêt à apprendre, je serais ravi d’échanger sur la façon dont je peux contribuer à votre équipe.</p>
+          <p data-i18n="contact.lede">Je suis ouvert à une <strong>collaboration remote, mission freelance, stage ou alternance</strong> en développement Full Stack. Si vous cherchez un profil junior motivé, curieux et prêt à contribuer, je serais ravi d’échanger avec votre équipe.</p>
           <div class="contact-email">
             <a href="mailto:dialloelijahismael@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>dialloelijahismael@gmail.com</span></a>
             <button type="button" class="copy-email" data-i18n="copy.email">Copier</button>
@@ -503,7 +531,7 @@
           <dl>
             <div><dt data-i18n="contact.location">Localisation</dt><dd data-i18n="contact.city">Dakar, Sénégal</dd></div>
             <div><dt data-i18n="contact.school">École</dt><dd>ESTM</dd></div>
-            <div><dt data-i18n="contact.looking">Je recherche</dt><dd data-i18n="contact.opportunity">Stage / Alternance</dd></div>
+            <div><dt data-i18n="contact.looking">Je recherche</dt><dd data-i18n="contact.opportunity">Remote / Freelance / Stage</dd></div>
             <div><dt data-i18n="section.languages">Langues</dt><dd data-i18n="contact.languages">Wolof, Français, Anglais</dd></div>
             <div><dt data-i18n="contact.phone">Téléphone</dt><dd><a href="tel:+221775979841">+221 77 597 98 41</a></dd></div>
           </dl>
@@ -713,12 +741,12 @@
         'nav.skills': 'Compétences',
         'nav.projects': 'Projets',
         'nav.contact': 'Contact',
-        'hero.role': 'Développeur web & administrateur réseau',
+        'hero.role': 'Développeur Full Stack junior & administrateur réseau',
         "hero.title": "Elijah Ismael <em>Diallo.</em>",
-        "hero.lede": "Je développe des applications web et configure des réseaux fiables. Basé à Dakar, je recherche un stage ou une alternance pour contribuer à des projets concrets.",
+        "hero.lede": "Je construis des applications web utiles, de l’interface aux données, et je configure des réseaux fiables. Basé à Dakar, je suis ouvert aux collaborations remote, missions freelance, stages et alternances.",
         'hero.projects': 'Voir les réalisations ↘',
         'hero.cv': 'Télécharger le CV ⬇',
-        "hero.tagline": "Disponible pour un stage ou une alternance",
+        "hero.tagline": "Ouvert aux collaborations remote · freelance · stage · alternance",
         'terminal.role': 'Développeur web &amp; administrateur réseau',
         'terminal.focus': 'Interfaces utiles et infrastructures fiables',
         'terminal.status': 'ouvert aux opportunités',
@@ -734,7 +762,7 @@
         'profile.quote': '« J\'aime comprendre un système de bout en bout, <em>du code jusqu\'au câble.</em> »',
         'profile.caption': '◇ La fiabilité est un détail qui change tout.',
         'profile.p1': 'Étudiant en <strong>Génie Logiciel et Administration Réseau à l\'ESTM</strong>, je conçois des applications web modernes, sécurisées et performantes, tout en gérant des infrastructures réseau fiables.',
-        'profile.p2': 'À l\'aise dans les environnements <strong>Linux</strong> et les architectures <strong>Cisco</strong>, j\'intègre volontiers les outils d\'automatisation dans mes projets. Je recherche activement un stage ou une alternance pour contribuer à des projets concrets.',
+        'profile.p2': 'À l\'aise dans les environnements <strong>Linux</strong> et les architectures <strong>Cisco</strong>, j\'intègre volontiers les outils d\'automatisation et les bases de données SQL dans mes projets. Je suis ouvert aux collaborations remote, missions freelance, stages et alternances.',
         'profile.link': 'Une idée à connecter ? ↗',
         'skills.title': 'Ce que j’apporte',
         'skills.hard': 'Compétences techniques',
@@ -793,13 +821,13 @@
         'faq.a5': 'Ils varient selon le type et la taille du projet. Contacte-moi avec une description de ton besoin et je te proposerai un devis adapté.',
         'contact.label': 'Me contacter',
         'contact.title': 'On discute ?',
-        'contact.lede': 'Je recherche un <strong>stage ou une alternance</strong> en développement web et administration réseau. Si vous cherchez un profil motivé, curieux et prêt à apprendre, je serais ravi d’échanger sur la façon dont je peux contribuer à votre équipe.',
+        'contact.lede': 'Je suis ouvert à une <strong>collaboration remote, mission freelance, stage ou alternance</strong> en développement Full Stack. Si vous cherchez un profil junior motivé, curieux et prêt à contribuer, je serais ravi d’échanger avec votre équipe.',
         'contact.facts': 'En bref',
         'contact.location': 'Localisation',
         'contact.city': 'Dakar, Sénégal',
         'contact.school': 'École',
         'contact.looking': 'Je recherche',
-        'contact.opportunity': 'Stage / Alternance',
+        'contact.opportunity': 'Remote / Freelance / Stage',
         'contact.languages': 'Wolof, Français, Anglais',
         'contact.phone': 'Téléphone',
         'scroll.top': 'Haut',
@@ -865,12 +893,12 @@
         'nav.skills': 'Skills',
         'nav.projects': 'Projects',
         'nav.contact': 'Contact',
-        'hero.role': 'Web developer & network administrator',
+        'hero.role': 'Junior Full Stack developer & network administrator',
         "hero.title": "Elijah Ismael <em>Diallo.</em>",
-        "hero.lede": "I build web applications and configure reliable networks. Based in Dakar, I am looking for an internship or work-study opportunity to contribute to real projects.",
+        "hero.lede": "I build useful web applications from interface to data, and configure reliable networks. Based in Dakar, I am open to remote collaborations, freelance work, internships and apprenticeships.",
         'hero.projects': 'View projects ↘',
         'hero.cv': 'Download CV ⬇',
-        "hero.tagline": "Available for internships and work-study opportunities",
+        "hero.tagline": "Open to remote · freelance · internship opportunities",
         'terminal.role': 'Web developer &amp; network administrator',
         'terminal.focus': 'Useful interfaces and reliable infrastructures',
         'terminal.status': 'open to opportunities',
@@ -886,7 +914,7 @@
         'profile.quote': '« I like understanding a system end to end, <em>from code to cable</em>. »',
         'profile.caption': '◇ Reliability is a small detail that changes everything.',
         'profile.p1': 'Student in <strong>Software Engineering and Network Administration at ESTM</strong>, I design modern, secure, and high-performing web applications while managing reliable network infrastructures.',
-        'profile.p2': 'Comfortable with <strong>Linux</strong> environments and <strong>Cisco</strong> architectures, I gladly integrate automation tools into my projects. I am actively looking for an internship or apprenticeship to contribute to concrete projects.',
+        'profile.p2': 'Comfortable with <strong>Linux</strong> environments and <strong>Cisco</strong> architectures, I gladly integrate automation tools and SQL databases into my projects. I am open to remote collaborations, freelance work, internships and apprenticeships.',
         'profile.link': 'An idea to connect? ↗',
         'skills.title': 'What I bring to the table',
         'skills.hard': 'Hard Skills',
@@ -945,13 +973,13 @@
         'faq.a5': 'They vary according to the type and size of the project. Contact me with a brief description of your need and I will send you a tailored quote.',
         'contact.label': 'Get in touch',
         'contact.title': 'Let’s chat?',
-        'contact.lede': 'I am looking for an <strong>internship or apprenticeship</strong> in web development and network administration. If you are looking for someone motivated, curious and eager to learn, I would be happy to discuss how I can contribute to your team.',
+        'contact.lede': 'I am open to a <strong>remote collaboration, freelance role, internship or apprenticeship</strong> in Full Stack development. If you are looking for a motivated junior developer ready to contribute, I would be happy to discuss how I can help your team.',
         'contact.facts': 'Quick facts',
         'contact.location': 'Location',
         'contact.city': 'Dakar, Senegal',
         'contact.school': 'School',
         'contact.looking': 'Looking for',
-        'contact.opportunity': 'Internship / Apprenticeship',
+        'contact.opportunity': 'Remote / Freelance / Internship',
         'contact.languages': 'Wolof, French, English',
         'contact.phone': 'Phone',
         'scroll.top': 'Top',
@@ -1069,11 +1097,13 @@
     document.querySelectorAll('.lang-fill').forEach(el => langObserver.observe(el));
   </script>
 
+  <script src="professional.js?v=20261115-2" defer></script>
   <script src="interactions.js?v=forge-2" defer></script>
-  <script src="portfolio.js?v=forge-2" defer></script>
-  <script src="project-explorer.js" defer></script>
+  <script src="portfolio.js?v=20261115-2" defer></script>
+  <script src="project-explorer.js?v=20261115-2" defer></script>
   <script src="life-cards.js" defer></script>
-  <script src="chatbot.js?v=forge-4" defer></script>
+  <script src="chatbot.js?v=20261115-2" defer></script>
+  <script src="reference-motion.js?v=20261115-2" defer></script>
 
 </body>
 

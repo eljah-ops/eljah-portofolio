@@ -1,0 +1,24 @@
+/* A focused conversation panel, independent of the former sidebar layout. */
+#portfolio-chat,html[data-theme=dark] #portfolio-chat{inset:auto 22px 22px auto;margin:0;width:min(450px,calc(100vw - 32px));height:min(690px,calc(100dvh - 44px));border-radius:22px;box-shadow:0 24px 90px #07152640;overflow:hidden}
+#portfolio-chat::backdrop{background:#11182726;backdrop-filter:blur(2px)}
+#portfolio-chat.is-expanded{width:min(760px,calc(100vw - 44px))}
+#portfolio-chat .chat-shell{display:flex;height:100%}#portfolio-chat .chat-main{width:100%}
+#portfolio-chat .chat-sidebar,#portfolio-chat .chat-topics-toggle,#portfolio-chat .chat-modes{display:none!important}
+#portfolio-chat .chat-header{height:70px;padding:0 18px;background:var(--chat-side)}
+#portfolio-chat .chat-header strong{font-size:13px;font-weight:650}
+.cockpit-reset{font-size:11px;color:var(--chat-muted);padding:9px 6px}.cockpit-expand{font-size:22px;width:36px;height:40px}
+#portfolio-chat .chat-welcome{padding:34px 24px 20px;text-align:left}
+#portfolio-chat .chat-eyebrow{font:10px var(--f-mono);letter-spacing:.1em;color:var(--chat-accent);margin-bottom:18px}
+#portfolio-chat .chat-welcome h2{font:650 35px/1.12 var(--f-body);letter-spacing:-1.6px;max-width:320px}
+#portfolio-chat .chat-intro{font-size:14px;line-height:1.7;margin:18px 0 25px}
+#portfolio-chat .chat-suggestions{display:grid;grid-template-columns:1fr;gap:9px}
+#portfolio-chat .chat-suggestions button{display:grid;grid-template-columns:30px 1fr;gap:2px 10px;padding:15px;border-radius:12px;background:var(--chat-card)}
+.cockpit-number{grid-row:span 2;font:11px var(--f-mono);color:var(--chat-accent);align-self:center}
+#portfolio-chat .chat-suggestions strong{font-size:14px;font-weight:600}#portfolio-chat .chat-suggestions small{grid-column:2;font-size:12px;color:var(--chat-muted)}
+#portfolio-chat .chat-compose-area{padding:12px 18px 16px;border-top:1px solid var(--chat-line);background:var(--chat-bg)}
+#portfolio-chat .chat-composer{border-radius:13px;padding:12px}
+#portfolio-chat .chat-disclaimer{font-size:10px;line-height:1.5}
+#portfolio-chat .chat-messages{padding:24px 20px 8px}#portfolio-chat .chat-message{margin-bottom:22px}#portfolio-chat .chat-message p{font-size:14px;line-height:1.7}
+#portfolio-chat .chat-source{font-size:12px;padding:9px 12px;border-radius:9px}#portfolio-chat .chat-followups button{font-size:12px;padding:8px 10px}
+.chat-launcher .chat-orbit{display:none}.chat-launcher{border-radius:50px;padding:13px 22px}.chat-launcher-copy small{color:inherit;opacity:.75}
+@media(max-width:700px){#portfolio-chat,html[data-theme=dark] #portfolio-chat,#portfolio-chat.is-expanded{inset:auto 8px 8px;margin:0;width:calc(100vw - 16px);height:calc(100dvh - 16px);border-radius:18px}.cockpit-expand{display:none}#portfolio-chat .chat-welcome{padding-top:25px}#portfolio-chat .chat-composer textarea{font-size:16px}}

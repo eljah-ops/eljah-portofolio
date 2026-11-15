@@ -7,7 +7,7 @@
   const thumbs = [...document.querySelectorAll('[data-slide]')];
   const bars = [...document.querySelectorAll('.story-progress span')];
   const pause = document.getElementById('story-pause');
-  let current = 0, elapsed = 0, paused = motion.matches, timer, touchX;
+  let current = 0, elapsed = 0, paused = true, timer, touchX;
   const updateLabels = () => {
     document.getElementById('story-prev').ariaLabel = english() ? 'Previous image' : 'Image précédente';
     document.getElementById('story-next').ariaLabel = english() ? 'Next image' : 'Image suivante';

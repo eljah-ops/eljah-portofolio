@@ -51,7 +51,13 @@
   };
 
   const openProject = (card, source, all = false) => {
-    gallery = all ? cards : cards.filter(item => !item.hidden);
+    if (!card.querySelector('.proj-preview img')) {
+      card.scrollIntoView({block:'center', behavior:motion.matches?'instant':'smooth'});
+      card.tabIndex=-1;
+      card.focus({preventScroll:true});
+      return;
+    }
+    gallery = cards.filter(item => item.querySelector('.proj-preview img') && (all || !item.hidden));
     currentCard = card;
     returnTo = source;
     renderProject();
@@ -65,7 +71,7 @@
   };
   cards.forEach(card => {
     const button = card.querySelector('.proj-preview');
-    button.addEventListener('click', () => openProject(card, button));
+    button?.addEventListener('click', () => openProject(card, button));
   });
   $('#preview-close').addEventListener('click', () => preview.close());
   $('#preview-prev').addEventListener('click', () => step(-1));
@@ -109,7 +115,7 @@
     })),
     ...cards.map(card => ({
       label: card.querySelector('h3').textContent, group: english() ? 'Project' : 'Projet',
-      keywords: `${card.querySelector('.proj-tags').textContent} ${card.querySelector('p[data-i18n]').textContent}`,
+      keywords: `${card.querySelector('.proj-tags').textContent} ${card.querySelector('p[data-i18n], p:not(.project-role)')?.textContent || ''}`,
       run: () => openProject(card, launcher, true)
     })),
     {
@@ -181,7 +187,7 @@
     if (quickNav.open) quickNav.close(); else openQuickNav();
   });
   const updateLabels = () => {
-    cards.forEach(card => card.querySelector('.proj-preview').setAttribute('aria-label', `${english() ? 'Explore' : 'Explorer'} ${card.querySelector('h3').textContent}`));
+    cards.forEach(card => card.querySelector('.proj-preview')?.setAttribute('aria-label', `${english() ? 'Explore' : 'Explorer'} ${card.querySelector('h3').textContent}`));
     if (preview.open) renderProject();
     if (quickNav.open) renderCommands();
   };
